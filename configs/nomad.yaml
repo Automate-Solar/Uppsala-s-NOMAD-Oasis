@@ -1,6 +1,8 @@
 services:
   api_host: "localhost"
   api_base_path: "/nomad-oasis"
+  upload_limit: 100000
+  console_log_level: 10
 
 oasis:
   is_oasis: true
@@ -23,6 +25,10 @@ logstash:
 
 temporal:
   enabled: true
+  internal_worker:
+    max_concurrent_activities: 1
+  processing_timeouts:
+    internal_processing_heartbeat_timeout: 300
 
 mongo:
   db_name: nomad_oasis_v1
@@ -34,3 +40,4 @@ elastic:
 north:
   enabled: true
   enable_new_hub_api: true
+
