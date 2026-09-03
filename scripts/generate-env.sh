@@ -55,7 +55,7 @@ then
 fi
 
 
-echo "✓ $ENV_FILE and $ENV_FILE.north files are created successfully!"
-echo "✓ Generated a 64-character API token and encryption keys."
+echo "âœ“ $ENV_FILE and $ENV_FILE.north files are created successfully!"
+echo "âœ“ Generated a 64-character API token and encryption keys."
 echo ""
 echo "You can now run 'docker compose up -d' to start NOMAD Oasis."
