@@ -309,9 +309,9 @@ services:
     platform: linux/amd64
     container_name: nomad_oasis_north
     environment:
-      #NOMAD_API_URL: "http://app:8000/nomad-oasis/api/v1"
-      #DOCKER_PREFIX: "nomad-oasis-north"
-      #DOCKER_NETWORK: "nomad_oasis_network"
+      NOMAD_API_URL: "http://app:8000/nomad-oasis/api/v1"
+      DOCKER_PREFIX: "nomad-oasis-north"
+      DOCKER_NETWORK: "nomad_oasis_network"
       NOMAD_SERVICE: nomad_oasis_north
       NOMAD_NORTH_DOCKER_NETWORK: nomad_oasis_network
       NOMAD_NORTH_HUB_CONNECT_IP: north
