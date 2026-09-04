@@ -218,47 +218,47 @@ services:
   #     start_period: 15s
 
   # # nomad cpu worker (actions)
-  cpu_worker:
-     restart: unless-stopped
-     image: ghcr.io/automate-solar/uppsala-s-nomad-oasis/cpu-action:main
-     platform: linux/amd64
-     container_name: nomad_oasis_cpu_worker
-     env_file:
-       - ./.env
-     environment:
-       NOMAD_SERVICE: nomad_oasis_cpu_worker
-       NOMAD_ELASTIC_HOST: elastic
-       NOMAD_MONGO_HOST: mongo
-       NOMAD_LOGSTASH_HOST: logtransfer
-       NOMAD_TEMPORAL_HOST: temporal
-     deploy:
-       replicas: 1
-       resources:
-         limits:
-           cpus: "1.0" # Maximum 2 CPU cores
-           memory: 4G # Maximum 8GB RAM
-     depends_on:
-       elastic:
-         condition: service_healthy
-       mongo:
-         condition: service_healthy
-       temporal:
-         condition: service_healthy
-     volumes:
-       # - ./configs/nomad.yaml:/app/nomad.yaml
-       - ./.volumes/fs:/app/.volumes/fs
-     command: python -m nomad.cli admin run action-cpu-worker
-     healthcheck:
-       test:
-         - "CMD"
-         - "curl"
-         - "--fail"
-         - "--silent"
-         - "http://localhost:8080/health"
-       interval: 10s
-       timeout: 5s
-       retries: 5
-       start_period: 15s
+  #cpu_worker:
+  #   restart: unless-stopped
+  #   image: ghcr.io/automate-solar/uppsala-s-nomad-oasis/cpu-action:main
+  #   platform: linux/amd64
+  #   container_name: nomad_oasis_cpu_worker
+  #   env_file:
+  #     - ./.env
+  #   environment:
+  #     NOMAD_SERVICE: nomad_oasis_cpu_worker
+  #     NOMAD_ELASTIC_HOST: elastic
+  #     NOMAD_MONGO_HOST: mongo
+  #     NOMAD_LOGSTASH_HOST: logtransfer
+  #     NOMAD_TEMPORAL_HOST: temporal
+  #   deploy:
+  #     replicas: 1
+  #     resources:
+  #       limits:
+  #         cpus: "1" # Maximum 2 CPU cores
+  #         memory: 4G # Maximum 8GB RAM
+  #   depends_on:
+  #     elastic:
+  #       condition: service_healthy
+  #     mongo:
+  #       condition: service_healthy
+  #     temporal:
+  #       condition: service_healthy
+  #   volumes:
+  #     # - ./configs/nomad.yaml:/app/nomad.yaml
+  #     - ./.volumes/fs:/app/.volumes/fs
+  #   command: python -m nomad.cli admin run action-cpu-worker
+  #   healthcheck:
+  #     test:
+  #       - "CMD"
+  #       - "curl"
+  #       - "--fail"
+  #       - "--silent"
+  #       - "http://localhost:8080/health"
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #     start_period: 15s
 
   # nomad app (api + proxy)
   app:
