@@ -3253,12 +3253,19 @@ wheels = [
 [[package]]
 name = "nomad-combinatorial-thin-film"
 version = "0.1.0"
-source = { git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.1#a18de24489490efe9564969cdc418d1698c63950" }
+source = { git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.2#c175cb2ef6c64ccef904e901830aeeecf53a96d4" }
 dependencies = [
+    { name = "fairmat-readers-xrd" },
+    { name = "httpx" },
+    { name = "nomad-analysis" },
+    { name = "nomad-dtu-nanolab-plugin" },
     { name = "nomad-lab" },
+    { name = "nomad-material-processing" },
+    { name = "nomad-measurements" },
     { name = "numpy" },
     { name = "pandas", version = "2.3.3", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.14'" },
     { name = "pandas", version = "3.0.3", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.14'" },
+    { name = "scikit-learn" },
 ]
 
 [[package]]
@@ -3299,7 +3306,7 @@ plugins = [
 [package.metadata]
 requires-dist = [
     { name = "jupyter-events", marker = "extra == 'jupyter'" },
-    { name = "nomad-combinatorial-thin-film", marker = "extra == 'plugins'", git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.1" },
+    { name = "nomad-combinatorial-thin-film", marker = "extra == 'plugins'", git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.2" },
     { name = "nomad-dtu-nanolab-plugin", marker = "extra == 'plugins'", git = "https://github.com/DTU-Nanolab-materials-discovery/nomad-dtu-nanolab-plugin.git?rev=v0.4.18" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==1.4.3" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = "==1.4.3" },
