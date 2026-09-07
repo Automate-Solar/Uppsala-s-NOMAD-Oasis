@@ -322,13 +322,15 @@ services:
       NOMAD_ELASTIC_HOST: elastic
       NOMAD_MONGO_HOST: mongo
     env_file:
-      - ./.env
+      - ./.env.north
     volumes:
       # Bind Docker socket on the host so we can connect to the daemon from
       # within the container
       - "/var/run/docker.sock:/var/run/docker.sock:rw"
       # Bind Docker volume on host for JupyterHub database and cookie secrets
       - "nomad_north:/data"
+    user: "1000:991" # 1000 is the default user id for jupyterhub, 991 is the default group id for jupyterhub
+    command: python -m nomad.cli admin run hub
     healthcheck:
       test:
         - "CMD"
@@ -340,9 +342,9 @@ services:
       timeout: 10s
       retries: 30
       start_period: 10s
-    depends_on:
-      app:
-        condition: service_healthy
+    #depends_on:
+    #  app:
+    #    condition: service_healthy
 
   # nomad logtransfer
   # to enable the logtransfer service run "docker compose --profile with_logtransfer up"
