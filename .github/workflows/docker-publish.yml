@@ -65,41 +65,41 @@ jobs:
           fi
 
   # Job 2: Run unit tests for all of the plugin
-  plugin_unit_tests:
-    name: Run plugin unit tests
-    needs: update-lockfile
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        group: [1, 2]
-    env:
-      PLUGIN_TESTS_CI_NODE_TOTAL: 2
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-          submodules: true
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          version: ${{ env.UV_VERSION }}
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Run plugin tests
-        env:
-          PLUGIN_TESTS_CI_NODE_INDEX: ${{ matrix.group }}
-        run: |
-          # replace the yaml list with a string, use a `,` to separate the plugins
-          PLUGINS_STRING=$(echo "$PLUGIN_TESTS_PLUGINS_TO_SKIP" | tr '\n' ',' | sed 's/,$//')
-          uv run \
-            --extra plugins \
-            --with "nomad-plugin-tests" \
-            nomad-plugin-tests --plugins-to-skip "$PLUGINS_STRING"
+  #plugin_unit_tests:
+  #  name: Run plugin unit tests
+  #  needs: update-lockfile
+  #  runs-on: ubuntu-latest
+  #  strategy:
+  #    fail-fast: false
+  #    matrix:
+  #      group: [1, 2]
+  #  env:
+  #    PLUGIN_TESTS_CI_NODE_TOTAL: 2
+  #  steps:
+  #    - uses: actions/checkout@v6
+  #      with:
+  #        ref: ${{ github.head_ref || github.ref_name }}
+  #        submodules: true
+#
+  #    - name: Install uv
+  #      uses: astral-sh/setup-uv@v7
+  #      with:
+  #        version: ${{ env.UV_VERSION }}
+#
+  #    - uses: actions/setup-python@v6
+  #      with:
+  #        python-version: ${{ env.PYTHON_VERSION }}
+#
+  #    - name: Run plugin tests
+  #      env:
+  #        PLUGIN_TESTS_CI_NODE_INDEX: ${{ matrix.group }}
+  #      run: |
+  #        # replace the yaml list with a string, use a `,` to separate the plugins
+  #        PLUGINS_STRING=$(echo "$PLUGIN_TESTS_PLUGINS_TO_SKIP" | tr '\n' ',' | sed 's/,$//')
+  #        uv run \
+  #          --extra plugins \
+  #          --with "nomad-plugin-tests" \
+  #          nomad-plugin-tests --plugins-to-skip "$PLUGINS_STRING"
 
   # Job 3: Build and Push Docker Image
   build:

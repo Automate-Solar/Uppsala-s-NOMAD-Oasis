@@ -330,7 +330,7 @@ services:
       # Bind Docker volume on host for JupyterHub database and cookie secrets
       #- "nomad_north:/data"
       - ./.volumes/fs:/app/.volumes/fs
-    user: "1000:991" # DockerSpawner needs permission to access the Docker socket on Docker Desktop
+    user: "0:0" # DockerSpawner needs permission to access the Docker socket on Docker Desktop
     command: python -m nomad.cli admin run hub
     healthcheck:
       test:
