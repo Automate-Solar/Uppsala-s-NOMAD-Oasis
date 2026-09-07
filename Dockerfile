@@ -46,6 +46,9 @@ RUN apt-get update \
        curl \
        zip \
        unzip \
+       nodejs \
+       npm \
+ && npm install --global configurable-http-proxy \
        # clean cache and logs
        && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
