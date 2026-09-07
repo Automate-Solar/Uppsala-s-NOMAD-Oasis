@@ -329,7 +329,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:rw"
       # Bind Docker volume on host for JupyterHub database and cookie secrets
       - "nomad_north:/data"
-    user: "1000:991" # 1000 is the default user id for jupyterhub, 991 is the default group id for jupyterhub
+    user: "0:0" # DockerSpawner needs permission to access the Docker socket on Docker Desktop
     command: python -m nomad.cli admin run hub
     healthcheck:
       test:
