@@ -284,8 +284,8 @@ services:
         condition: service_healthy
       mongo:
         condition: service_healthy
-      north:
-        condition: service_started # TODO: service_healthy
+      #north:
+      #  condition: service_started # TODO: service_healthy
     volumes:
       # - ./configs/nomad.yaml:/app/nomad.yaml
       - ./.volumes/fs:/app/.volumes/fs
