@@ -51,7 +51,15 @@ plugins = [
 #  "nomad-crystallm",
   "nomad-north-jupyter>=0.2.5"
 ]
-jupyter = ["jupyter-events"]
+jupyter = [
+  "voila",
+  "ipyaggrid",
+  "ipysheet",
+  "ipydatagrid",
+  "jupyter-flex",
+  "jupyterlab",
+  "jupyterlab_widgets",
+  ]
 gpu-action = []
 cpu-action = []
 
