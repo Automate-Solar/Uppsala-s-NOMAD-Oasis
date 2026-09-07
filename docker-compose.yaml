@@ -326,11 +326,11 @@ services:
     volumes:
       # Bind Docker socket on the host so we can connect to the daemon from
       # within the container
-      #- "/var/run/docker.sock:/var/run/docker.sock:rw"
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
       # Bind Docker volume on host for JupyterHub database and cookie secrets
-      #- "nomad_north:/data"
+      - "nomad_north:/data"
       - ./.volumes/fs:/app/.volumes/fs
-    user: "0:0" # DockerSpawner needs permission to access the Docker socket on Docker Desktop
+    #user: "0:0" # DockerSpawner needs permission to access the Docker socket on Docker Desktop
     command: python -m nomad.cli admin run hub
     healthcheck:
       test:
