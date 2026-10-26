@@ -41,3 +41,11 @@ elastic:
 #  enabled: true
 #  enable_new_hub_api: true
 
+auth:
+  require_authentication: true
+  reject_unauthorized_users: true
+  authorized_users:
+    - paramesh.chandra@angstrom.uu.se
+    - jonathan.scragg@uu.se
+    - hugo.kvanta@angstrom.uu.se
+    - parameshchandra28@gmail.com
