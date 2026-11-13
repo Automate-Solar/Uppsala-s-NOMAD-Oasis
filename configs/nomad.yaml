@@ -43,7 +43,7 @@ elastic:
 
 auth:
   require_authentication: true
-  reject_unauthorized_users: true
+  reject_unauthorized_users: false
   authorized_users:
     - paramesh.chandra@angstrom.uu.se
     - jonathan.scragg@uu.se
