@@ -3820,7 +3820,7 @@ wheels = [
 [[package]]
 name = "nomad-combinatorial-thin-film"
 version = "0.1.0"
-source = { git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.2#c175cb2ef6c64ccef904e901830aeeecf53a96d4" }
+source = { git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.1#d43106de43b005739a87e5cb68fb7c571a65469f" }
 dependencies = [
     { name = "fairmat-readers-xrd" },
     { name = "httpx" },
@@ -3884,7 +3884,7 @@ requires-dist = [
     { name = "jupyter-flex", marker = "extra == 'jupyter'" },
     { name = "jupyterlab", marker = "extra == 'jupyter'" },
     { name = "jupyterlab-widgets", marker = "extra == 'jupyter'" },
-    { name = "nomad-combinatorial-thin-film", marker = "extra == 'plugins'", git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.0.2" },
+    { name = "nomad-combinatorial-thin-film", marker = "extra == 'plugins'", git = "https://github.com/Automate-Solar/nomad-combinatorial-thin-film?rev=v0.1" },
     { name = "nomad-dtu-nanolab-plugin", marker = "extra == 'plugins'", git = "https://github.com/DTU-Nanolab-materials-discovery/nomad-dtu-nanolab-plugin.git?rev=v0.4.18" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==1.4.3" },
     { name = "nomad-lab", extras = ["infrastructure"], specifier = "==1.4.3" },
